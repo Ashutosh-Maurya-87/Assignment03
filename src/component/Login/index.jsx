@@ -23,11 +23,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  
+
   const handleLogin = () => {
     if (!email && !password) {
       setEmailError("Please enter email");
       setPasswordError("Please enter password");
+    } else if (password.length < 8) {
+      setPasswordError("password has minimum 8 character");
     } else {
       localStorage.setItem("login", JSON.stringify(true));
       Navigate("/home");
@@ -39,7 +41,7 @@ const Login = () => {
     }
   };
   return (
-    <div  fluid="sm" className="container-fluid loginContainer">
+    <div fluid="sm" className="container-fluid loginContainer">
       <Row className="rowClass">
         <Col sm={12} lg={12} md={12}>
           <div className="loginCard">
@@ -48,13 +50,17 @@ const Login = () => {
                 width: "30rem",
               }}
             >
-              <CardHeader className="text-center headerCard">Login</CardHeader>
+              <CardHeader className="text-center headerCard">
+                <h3>
+                  <u>Login Form</u>
+                </h3>
+              </CardHeader>
               <CardBody>
                 <Form>
                   Email:{" "}
                   <Input
                     type={"email"}
-                    placeholder="enter your mail"
+                    placeholder="enter your e-mail id"
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -72,7 +78,9 @@ const Login = () => {
                 </Form>
               </CardBody>
               <CardFooter className="footerCard">
-                <Button onClick={handleLogin}  color="primary" className="w-50">Login</Button>
+                <Button onClick={handleLogin} color="primary" className="w-50">
+                  Login
+                </Button>
               </CardFooter>
             </Card>
           </div>

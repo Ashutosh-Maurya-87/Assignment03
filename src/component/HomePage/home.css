@@ -1,0 +1,20 @@
+.blogForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.textArea {
+  /* box-sizing: border-box;
+  max-width: 100%; */
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  outline: none;
+  /* resize: none; */
+  border: 1px solid grey;
+}
+.blogCard {
+  width: 50%;
+  height: 100%;
+  margin: 2% auto;
+}

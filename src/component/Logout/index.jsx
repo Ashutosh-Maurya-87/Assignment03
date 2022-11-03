@@ -48,55 +48,34 @@ const Logout = () => {
     Navigate("/");
   };
   const handleNo = () => {
-    Navigate("/logout");
+    Navigate("/home");
   };
   return (
     <Container>
       <Row>
         <Col sm={12} lg={12} md={12}>
-          <div className="loginCard">
+          <div className="logoutCard">
             <Card
               style={{
                 width: "20rem",
               }}
             >
-              <CardHeader className="text-center">Logout</CardHeader>
+              <CardHeader className="text-center">
+                <h5>Logout</h5>
+              </CardHeader>
               <CardBody>
+                <p className="text-center">Are you want to logout!</p>
                 <div className="d-flex justify-content-center">
                   <div>
-                    <Button onClick={handleYes}>Yes</Button>
+                    <Button onClick={handleYes} color='primary'>Yes</Button>
                   </div>
                   <div>
-                    <Button onClick={handleNo} className="ms-2">
+                    <Button onClick={handleNo} className="ms-2" color='primary'>
                       No
                     </Button>
                   </div>
                 </div>
-                {/* <Form>
-                  Email:{" "}
-                  <input
-                    type={"email"}
-                    placeholder="enter your mail"
-                    name="email"
-                    className="ms-4"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <p className="text-danger">{emailError}</p>
-                  <br />
-                  Password:{" "}
-                  <input
-                    type={"password"}
-                    placeholder="password"
-                    name="pass"
-                    // className="mt-3"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <p className="text-danger">{passwordError}</p>
-                </Form> */}
               </CardBody>
-              {/* <CardFooter className="footerCard">
-                // {/* <Button onClick={handleLogin}>Login</Button> */}
-              {/* </CardFooter> */}
             </Card>
           </div>
         </Col>
