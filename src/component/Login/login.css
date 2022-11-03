@@ -1,0 +1,9 @@
+.loginCard {
+    margin: 8% auto;
+  display: flex;
+  justify-content: center;
+}
+.footerCard {
+  display: flex;
+  justify-content: center;
+}
