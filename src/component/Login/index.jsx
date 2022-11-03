@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -9,56 +10,58 @@ import {
   Col,
   Container,
   Form,
+  Input,
   Row,
 } from "reactstrap";
+import { userLoginData } from "../../Redux/Actions";
 import "./login.css";
 
 const Login = () => {
   const Navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  // const handlePassword = () => {
-
-  // }
-  // const handleEmail = () => {
-
-  // }
+  
   const handleLogin = () => {
     if (!email && !password) {
-      setEmailError("please enter email");
-      setPasswordError("please enter password");
+      setEmailError("Please enter email");
+      setPasswordError("Please enter password");
     } else {
       localStorage.setItem("login", JSON.stringify(true));
       Navigate("/home");
+      const payload = {
+        userName: email,
+        password: password,
+      };
+      dispatch(userLoginData(payload));
     }
   };
   return (
-    <Container>
-      <Row>
+    <div  fluid="sm" className="container-fluid loginContainer">
+      <Row className="rowClass">
         <Col sm={12} lg={12} md={12}>
           <div className="loginCard">
             <Card
               style={{
-                width: "rem",
+                width: "30rem",
               }}
             >
-              <CardHeader className="text-center">Login</CardHeader>
+              <CardHeader className="text-center headerCard">Login</CardHeader>
               <CardBody>
                 <Form>
                   Email:{" "}
-                  <input
+                  <Input
                     type={"email"}
                     placeholder="enter your mail"
                     name="email"
-                    className="ms-4"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <p className="text-danger">{emailError}</p>
                   <br />
                   Password:{" "}
-                  <input
+                  <Input
                     type={"password"}
                     placeholder="password"
                     name="pass"
@@ -69,13 +72,13 @@ const Login = () => {
                 </Form>
               </CardBody>
               <CardFooter className="footerCard">
-                <Button onClick={handleLogin}>Login</Button>
+                <Button onClick={handleLogin}  color="primary" className="w-50">Login</Button>
               </CardFooter>
             </Card>
           </div>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

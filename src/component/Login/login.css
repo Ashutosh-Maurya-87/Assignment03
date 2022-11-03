@@ -1,9 +1,25 @@
+.loginContainer {
+  background: #b5c0ad;
+  height: 100vh;
+  /* min-height: 720px;
+  min-width: 320px; */
+}
+
+.rowClass {
+  height: 100vh;
+}
 .loginCard {
-    margin: 8% auto;
+  width: 100%;
+  height: 60%;
+  margin: 8% auto;
   display: flex;
   justify-content: center;
 }
 .footerCard {
   display: flex;
   justify-content: center;
+}
+.headerCard {
+  font-size: 30px;
+  font-weight: 600;
 }
