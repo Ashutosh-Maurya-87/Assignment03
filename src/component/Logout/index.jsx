@@ -65,7 +65,7 @@ const Logout = () => {
               </CardHeader>
               <CardBody>
                 <p className="text-center">Are you want to logout!</p>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-evenly">
                   <div>
                     <Button onClick={handleYes} color='primary'>Yes</Button>
                   </div>

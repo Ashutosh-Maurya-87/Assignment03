@@ -7,6 +7,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
+  CardImg,
   Col,
   Container,
   Form,
@@ -15,6 +16,7 @@ import {
 } from "reactstrap";
 import { userLoginData } from "../../Redux/Actions";
 import "./login.css";
+import loginAvtar from "../../assets/images/avtarImage.jpg";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -48,6 +50,7 @@ const Login = () => {
             <Card
               style={{
                 width: "30rem",
+                height: '30rem'
               }}
             >
               <CardHeader className="text-center headerCard">
@@ -55,7 +58,15 @@ const Login = () => {
                   <u>Login Form</u>
                 </h3>
               </CardHeader>
+
               <CardBody>
+                <CardImg
+                  width="50%"
+                  height={"20%"}
+                  src={loginAvtar}
+                  alt="photo"
+                  className="avtarImage"
+                />
                 <Form>
                   Email:{" "}
                   <Input
@@ -64,7 +75,7 @@ const Login = () => {
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <p className="text-danger">{emailError}</p>
+                  {emailError && <p className="text-danger m-0 p-0">{emailError}</p>}
                   <br />
                   Password:{" "}
                   <Input
@@ -74,7 +85,9 @@ const Login = () => {
                     // className="mt-3"
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <p className="text-danger">{passwordError}</p>
+                  {passwordError && (
+                    <p className="text-danger m-0 p-0">{passwordError}</p>
+                  )}
                 </Form>
               </CardBody>
               <CardFooter className="footerCard">
