@@ -43,12 +43,16 @@ const Home = () => {
       dispatch(blogData([...blog, formData]));
     }
   };
-
+/**
+ * @description function for remove blog card 
+ */
   const handleRemove = (i) => {
     setBlog(blog.splice(i, 1));
     dispatch(blogData(blog));
   };
-
+/**
+ * @description function for logout
+ */
   const handleLogout = () => {
     navigate("/logout");
   };
@@ -65,6 +69,9 @@ const Home = () => {
 
   return (
     <>
+      {/**
+       * @description Blog form section
+       */}
       <div className="text-end m-3">
         <Button onClick={handleLogout} color="primary">
           Logout
@@ -111,6 +118,9 @@ const Home = () => {
           </Card>
         </div>
       </Form>
+      {/**
+       * @description Showing data in card after submit the blog
+       */}
       <Row className="cardBlog">
         {Object.values(REDUX_BLOG_DATA)?.map((item, i) => {
           return (
@@ -119,12 +129,13 @@ const Home = () => {
                 <CardHeader>{item?.title}</CardHeader>
                 <CardBody>
                   <div className="blogAbout">
-
-                  <span className="text-bold">About: </span><span>{item?.about}</span><br />
+                    <span className="text-bold">About: </span>
+                    <span>{item?.about}</span>
+                    <br />
                   </div>
                   <div className="blogContent">
-
-                  <span className="text-bold">Content: </span><span>{item?.content}</span>
+                    <span className="text-bold">Content: </span>
+                    <span>{item?.content}</span>
                   </div>
                 </CardBody>
                 <CardFooter className="text-end">

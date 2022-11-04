@@ -26,6 +26,9 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  /**
+   * @description function for login user
+   */
   const handleLogin = () => {
     if (!email && !password) {
       setEmailError("Please enter email");
@@ -50,7 +53,7 @@ const Login = () => {
             <Card
               style={{
                 width: "30rem",
-                height: '30rem'
+                height: "30rem",
               }}
             >
               <CardHeader className="text-center headerCard">
@@ -75,7 +78,9 @@ const Login = () => {
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  {emailError && <p className="text-danger m-0 p-0">{emailError}</p>}
+                  {emailError && (
+                    <p className="text-danger m-0 p-0">{emailError}</p>
+                  )}
                   <br />
                   Password:{" "}
                   <Input
