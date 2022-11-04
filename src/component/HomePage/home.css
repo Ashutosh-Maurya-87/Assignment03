@@ -13,7 +13,7 @@
   /* resize: none; */
   border: 1px solid grey;
 }
-.cardBlog{
+.cardBlog {
   width: 100%;
   margin: 2%;
 }
@@ -21,4 +21,15 @@
   width: 100%;
   height: 100%;
   margin: 2%;
+}
+.blogContent {
+  overflow-y: scroll;
+  height: 130px;
+}
+.text-bold {
+  font-weight: 500;
+}
+.blogAbout {
+  overflow-y: scroll;
+  height: 130px;
 }

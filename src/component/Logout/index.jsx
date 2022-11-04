@@ -58,6 +58,7 @@ const Logout = () => {
             <Card
               style={{
                 width: "20rem",
+                height: '10rem'
               }}
             >
               <CardHeader className="text-center">

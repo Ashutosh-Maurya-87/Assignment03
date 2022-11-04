@@ -114,12 +114,18 @@ const Home = () => {
       <Row className="cardBlog">
         {Object.values(REDUX_BLOG_DATA)?.map((item, i) => {
           return (
-            <Col key={i} sm={12} md={3} lg={3} className="mt-2">
+            <Col key={i} sm={12} md={4} lg={4} className="mt-2">
               <Card className="blogCard">
                 <CardHeader>{item?.title}</CardHeader>
                 <CardBody>
-                  <p>{item?.about}</p>
-                  <p>{item?.content}</p>
+                  <div className="blogAbout">
+
+                  <span className="text-bold">About: </span><span>{item?.about}</span><br />
+                  </div>
+                  <div className="blogContent">
+
+                  <span className="text-bold">Content: </span><span>{item?.content}</span>
+                  </div>
                 </CardBody>
                 <CardFooter className="text-end">
                   <Button color="primary" onClick={() => handleRemove(i)}>
