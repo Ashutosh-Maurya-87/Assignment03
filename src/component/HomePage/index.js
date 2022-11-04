@@ -27,7 +27,8 @@ const Home = () => {
   const [contentError, setContentError] = useState("");
   const REDUX_BLOG_DATA = useSelector((state) => state.AllReducers?.blogData);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (title.length < 1 && about.length < 1 && content.length < 1) {
       setTitleError("Enter title");
       setAboutError("Enter about blog");
@@ -42,8 +43,7 @@ const Home = () => {
       dispatch(blogData([...blog, formData]));
     }
   };
-  const data = localStorage.getItem("data");
-  console.log("data", JSON.stringify(data));
+
   const handleRemove = (i) => {
     setBlog(blog.splice(i, 1));
     dispatch(blogData(blog));
@@ -52,6 +52,17 @@ const Home = () => {
   const handleLogout = () => {
     navigate("/logout");
   };
+  const handleBlogTitle = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleBlogAbout = (e) => {
+    setAbout(e.target.value);
+  };
+
+  const handleBlogContent = (e) => {
+    setContent(e.target.value);
+  };
+
   return (
     <>
       <div className="text-end m-3">
@@ -60,7 +71,7 @@ const Home = () => {
         </Button>
       </div>
       <Form>
-        <h3>Write a blog</h3>
+        <h3 className="text-center m-4">Write a blog</h3>
         <div className="blogForm">
           <Card
             style={{
@@ -73,7 +84,7 @@ const Home = () => {
                 type="text"
                 placeholder="enter title"
                 name="title"
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={handleBlogTitle}
               />
               {title.length < 1 && <p className="text-danger">{titleError}</p>}
               <h5>About Blog</h5>
@@ -81,13 +92,13 @@ const Home = () => {
                 type="text"
                 placeholder="enter about blog"
                 name="blog"
-                onChange={(e) => setAbout(e.target.value)}
+                onChange={handleBlogAbout}
               />
               {about.length < 1 && <p className="text-danger">{aboutError}</p>}
               <h5>Blog Content</h5>
               <textarea
                 placeholder="write"
-                onChange={(e) => setContent(e.target.value)}
+                onChange={handleBlogContent}
                 className="textArea"
               />
               {content.length < 1 && (
